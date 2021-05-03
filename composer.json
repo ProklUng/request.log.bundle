@@ -1,0 +1,37 @@
+{
+    "name": "proklung/request-log-bundle",
+    "description": "Бандл для создания и использования моков Response.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gavrilov Fedy",
+            "email": "fedor.gavrilov.75@mail.ru",
+            "homepage": "https://github.com/ProklUng"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ProklUng/request.log.bundle/issues",
+        "source": "https://github.com/ProklUng/request.log.bundle"
+    },
+    "autoload": {
+        "psr-4": {
+            "Prokl\\RequestLogBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "Tests/"
+        ]
+    },
+    "require": {
+        "php": ">=7.1",
+        "psr/container": "^1.0",
+        "symfony/dependency-injection": "^4.0 || ^5.0",
+        "symfony/http-kernel": "^4.0 || ^5.0",
+        "symfony/config": "~4|~5",
+        "symfony/console": "~4|~5"
+    },
+    "require-dev": {
+        "proklung/phpunit-testing-tools": "^1.0",
+        "symfony/filesystem": "~4|~5"
+    }
+}

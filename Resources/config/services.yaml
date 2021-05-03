@@ -1,0 +1,49 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  mroca_filesystem:
+    public: false
+    class: Symfony\Component\Filesystem\Filesystem
+
+  request_log.reponse_logger:
+    class: Prokl\RequestLogBundle\Service\ResponseLogger
+    arguments:
+      - '%request_log.mocks_dir%'
+      - '%request_log.hash_query_params%'
+      - '%request_log.use_indexed_associative_array%'
+
+  request_log.reponse_log_listener:
+    public: true
+    class: Prokl\RequestLogBundle\EventListener\ResponseLogSubscriber
+    arguments:
+      - '@request_log.reponse_logger'
+    tags:
+      - { name: kernel.event_listener, event: kernel.terminate, method: handle }
+
+  request_log.request_mock_listener:
+    public: true
+    class: Prokl\RequestLogBundle\EventListener\RequestMockListener
+    arguments:
+      - '@request_log.reponse_logger'
+      - '@mroca_filesystem'
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: handle }
+
+  request_log.command.clear_request_logs:
+    class: Prokl\RequestLogBundle\Command\ClearRequestLogsCommand
+    arguments:
+      - '@request_log.reponse_logger'
+    calls:
+      - setMocksDir: ['%request_log.mocks_dir_commands%']
+    tags:
+      - { name: console.command }
+
+  request_log.command.dump_request_logs:
+    class: Prokl\RequestLogBundle\Command\DumpRequestLogsCommand
+    arguments:
+      - '@request_log.reponse_logger'
+    tags:
+      - { name: console.command }
