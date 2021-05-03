@@ -1,4 +1,4 @@
-# An HTTP requests mock generator symfony bundle.
+# Бандл для создания и использования моков Response
 
 Форк [пакета](https://github.com/mRoca/MrocaRequestLogBundle). Доработан под личные нужды, плюс добавил некоторые экспериментальные
 битриксовые наработки (получилось не стабильно).
