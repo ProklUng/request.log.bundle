@@ -25,6 +25,12 @@
 В конфигурации бандла (файл `/local/config/packages/request_log.yaml`) в секции `bitrix_uri_list` указываются
 regex паттерны страниц, подвергающихся обработке.
 
+## Установка
+
+```bash
+composer require --dev proklung/request-log-bundle
+```
+
 # Оригинальная документация
 
 ## Description
@@ -112,10 +118,6 @@ PUT /categories/1 CONTENT: {"foo2":"bar2", "foo1":"bar1"}   | categories/POST__1
 
     The filenames query strings with non-asssocitive arrays are not indexed by default : `?foo[]=bar`.
     You can use the indexed format by setting the `use_indexed_associative_array` option to `true` : `?foo[0]=bar`.
-
-```bash
-composer require --dev proklung/request-log-bundle
-```
 
 *If necessary*, configure the bundle to your needs (example with default values):
 
