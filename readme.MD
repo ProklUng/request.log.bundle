@@ -28,7 +28,7 @@ regex паттерны страниц, подвергающихся обрабо
 ## Установка
 
 ```bash
-composer require --dev proklung/request-log-bundle
+composer require proklung/request-log-bundle
 ```
 
 # Оригинальная документация
